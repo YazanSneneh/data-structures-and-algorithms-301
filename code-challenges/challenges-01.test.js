@@ -27,6 +27,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
+  let stringsArray = []
+  arr.forEach(element => {
+    stringsArray.push(element + '!')
+  });
+  return stringsArray
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,6 +44,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
+  let upperCaseArray = [];
+  arr.forEach(element => {
+    upperCaseArray.push(element.toUpperCase());
+  });
+  return upperCaseArray
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -53,16 +63,23 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
+  return word.toUpperCase() + '!';
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
+  let newStringsArray = [];
+  words.forEach(element => {
+    newStringsArray.push(callback(element))
+  });
+  return newStringsArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named addValues that takes in an array and a value and pushes the value into the array. This function does not need a return statement.
+Write a function named addValues that takes in an array and a value 
+and pushes the value into the array. This function does not need a return statement.
 
 Then, write a function named addNumbers that takes in four arguments:
   - A number to be added to an array
@@ -70,13 +87,15 @@ Then, write a function named addNumbers that takes in four arguments:
   - The number of times the number should be added
   - A callback function to use to add the numbers to the array (Hint: you already defined it)
 
-Within the addNumbers function, invoke the callback function as many times as necessary, based on the third argument of the addNumbers function.
+Within the addNumbers function, invoke the callback function as many times as necessary,
+ based on the third argument of the addNumbers function.
 
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
@@ -98,11 +117,20 @@ The inventory is formatted like this:
   { name: 'blueberries', available: false }
 ]
 
-This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
+ This function should use forEach to populate your grocery list based on the store's inventory.
+ If the item is available, add it to your list. 
+ Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
   // Solution code here...
+  let groceryList = [];
+  availableItems.forEach(item => {
+    if (item.available == true) {
+      groceryList.push(item.name)
+    }
+  })
+  return groceryList;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,6 +149,17 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  let fizzBuzzArray = []
+  arr.forEach(number => {
+    if (number % 3 === 0 && number % 5 === 0) {
+      fizzBuzzArray.push('Fizz Buzz');
+    } else if (number % 5 === 0) {
+      fizzBuzzArray.push('Buzz');
+    } else if (number % 3 === 0) {
+      fizzBuzzArray.push('Fizz')
+    }
+  });
+  return fizzBuzzArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
