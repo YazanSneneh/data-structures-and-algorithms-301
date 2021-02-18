@@ -122,7 +122,7 @@ Here is an example of the input:
 const sortByPrice = (arr) => {
   // Solution code here...
   arr.sort((a, b) => {
-    arr.sort((a, b) => b.length - a.length)
+    arr.sort((a, b) => a.price - b.price)
   })
   return arr;
 };
