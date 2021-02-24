@@ -11,7 +11,7 @@ and uses split and splice to return the last 10 characters from that string
 
 function returnTen(str) {
   // Solution code here...
-  let returnString = str.split(' ').splice(str.length - 10)
+  let returnString = str.split('').splice(-10)
   return returnString;
 }
 
@@ -43,9 +43,9 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
-  let regex = /and/g
+  let regex = /(and)/g
   let returnArray = arr.filter(element => {
-    return regex.find(element)
+    return element.match(regex)
   })
   return returnArray;
 };
@@ -78,22 +78,38 @@ The callback function to filter should include or utilize a regular expression p
 For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 'hound'].
 ------------------------------------------------------------------------------------------------ */
 
-
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  const vowels = ['a,o,u,e,i'];
+  let returnArray = vowels.filter(vowel => {
+    for (let i = 0; i < arr.length; i++) {
+      if (vowel === arr[i]) {
+        return arr
+      }
+    }
+  })
+  return returnArray
 };
 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named notInFirstArray that, given two arrays as input, uses filter to return an array of all the elements in the second array that are not included in the first array.
+Write a function named notInFirstArray that, given two arrays as input,
+ uses filter to return an array of all the elements in the second
+array that are not included in the first array.
 
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  let returnArray = forbiddenValues.filter(element => {
+    for (let i = 0; i < arr.length; i++) {
+      return element !== arr[i];
+    }
+  })
+  return returnArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
