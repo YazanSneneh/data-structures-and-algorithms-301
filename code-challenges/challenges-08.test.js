@@ -67,6 +67,12 @@ const oddValues = (arr) => {
   return oddArray;
 };
 
+// const paragraph = ['The',' quick',' brown',' fx jmps', 'strng'];
+// const regex = /a|e|o|u|i/g;
+// const found = paragraph.filter(item=>{
+//    return item.match(regex);
+// })
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -80,15 +86,11 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
-  const vowels = ['a,o,u,e,i'];
-  let returnArray = vowels.filter(vowel => {
-    for (let i = 0; i < arr.length; i++) {
-      if (vowel === arr[i]) {
-        return arr
-      }
-    }
+  const regex = /[aeoiu]/g;
+  const returnVals = arr.filter(item => {
+    return item.match(regex)
   })
-  return returnArray
+  return returnVals
 };
 
 
@@ -100,16 +102,25 @@ Write a function named notInFirstArray that, given two arrays as input,
 array that are not included in the first array.
 
 For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
+
+
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-  let returnArray = forbiddenValues.filter(element => {
-    for (let i = 0; i < arr.length; i++) {
-      return element !== arr[i];
+  /*
+       1. forbiddenValues and filter function.
+      2. chck on eacah item using include and it will return true or false.
+      if 
+  */
+  let returnVals = arr.filter(item => {
+    if (forbiddenValues.includes(item)) {
+      return false;
+    } else {
+      return true;
     }
   })
-  return returnArray;
+  return returnVals;
 };
 
 /* ------------------------------------------------------------------------------------------------
